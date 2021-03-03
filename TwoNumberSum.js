@@ -16,3 +16,24 @@ const twoNumberSum = (a, targetSum) => {
 };
 
 console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
+
+// Best Answer
+const twoSum = (a, targetSum) => {
+  a.sort((a, b) => a - b);
+  let left = 0;
+  let right = a.length - 1;
+  while(left < right) {
+    const currentSum  = a[left] + a[right];
+    if(currentSum == targetSum) {
+      return [a[left], a[right]];
+    }
+    if(currentSum < targetSum) {
+      left++;
+    } else {
+      right ++;
+    }
+  }
+  return [];
+};
+
+console.log(twoSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
